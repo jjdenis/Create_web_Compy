@@ -1,29 +1,45 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from compy.colors import colors
-from compy.bitmaps import bitmap_images
-from create_web import Examples
-from create_web import t2wp
-
+from color_table import colors
+# from compy.bitmaps import bitmap_images
+import tmplt2html
+import demoprograms
+import settings
 
 def make_all_html():
-    t2wp('index.html')
-    t2wp('install.html')
-    t2wp('examples.html')
-    t2wp('commands.html')
 
-    make_challenges_html()
+    copy_images()
 
-    make_colors_html()
-    make_keys_html()
-    make_chars_html()
+    tmplt2html.render('index.html')
+    tmplt2html.render('install.html')
+    tmplt2html.render('examples.html')
+    tmplt2html.render('commands.html')
+
+    challenges = define_challenges()
+    tmplt2html.render('challenges.html', challenges=challenges)
+
+    clrs = get_colors()
+    tmplt2html.render('colors.html', colors=clrs)
+
+    keys = get_keys()
+    tmplt2html.render('keys.html', keys=keys)
+
+    # bitmaps = get_bitmaps()
+    # template_to_webpage.t2wp('chars.html', bitmaps=bitmaps)
+
+import os
+def copy_images():
+    path_chall=settings.CODE_PATH+'challenges/'
+    files = os.listdir(path_chall)
+    for file in files:
+        if '.png' in file:
+            os.rename(path_chall+file, settings.DOCS_PATH+'img/'+file)
 
 
+def define_challenges():
 
-def make_challenges_html():
-
-    challenges = Examples()
+    challenges = demoprograms.DemoPrograms()
 
     challenges.new(title='Draw one line',
                    name='draw_line',
@@ -40,19 +56,19 @@ def make_challenges_html():
                    comments='This is a simple example, ',
                    challenge =True)
 
-    t2wp('challenges.html', challenges=challenges)
+    return challenges
+#
+#
+# def get_bitmaps():
+#     bitmaps = []
+#     for bitmap_code, bitmap_path in enumerate(bitmap_images):
+#         if bitmap_path:
+#             path = bitmap_path.replace('compy/chars', 'chars')
+#             bitmaps.append((bitmap_code, path))
+#     return bitmaps
 
 
-def make_chars_html():
-    bitmaps = []
-    for bitmap_code, bitmap_path in enumerate(bitmap_images):
-        if bitmap_path:
-            path = bitmap_path.replace('compy/chars', 'chars')
-            bitmaps.append((bitmap_code, path))
-    t2wp('chars.html', bitmaps=bitmaps)
-
-
-def make_keys_html():
+def get_keys():
     allowed_keys = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ<,.-+'"
     keys = []
     for key_rep in allowed_keys:
@@ -68,10 +84,9 @@ def make_keys_html():
     keys.append((307, 'alt'))
     keys.append((308, 'command'))
     keys.append((8, 'backspace'))
-    t2wp('keys.html', keys=keys)
+    return keys
 
-
-def make_colors_html():
+def get_colors():
     clrs = []
     for col_code in range(0, 20):
         col_tup = colors.get_color(col_code)
@@ -79,7 +94,8 @@ def make_colors_html():
         clrs.append((col_code,
                      colors.get_color_name(col_code),
                      html_color))
-    t2wp('colors.html', colors=clrs)
+    return clrs
+
 
 
 
