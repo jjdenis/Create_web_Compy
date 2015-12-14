@@ -13,11 +13,15 @@ def make_all_html():
 
     tmplt2html.render('index.html')
     tmplt2html.render('install.html')
-    tmplt2html.render('examples.html')
+    tmplt2html.render('exampleskk.html')
     tmplt2html.render('commands.html')
+
+    examples = define_examples()
+    tmplt2html.render('examples.html', challenges=examples)
 
     challenges = define_challenges()
     tmplt2html.render('challenges.html', challenges=challenges)
+
 
     clrs = get_colors()
     tmplt2html.render('colors.html', colors=clrs)
@@ -29,12 +33,21 @@ def make_all_html():
     # template_to_webpage.t2wp('chars.html', bitmaps=bitmaps)
 
 import os
+
 def copy_images():
+
     path_chall=settings.CODE_PATH+'challenges/'
+    move_files_to_docs(path_chall)
+
+    path_chall=settings.CODE_PATH+'examples/'
+    move_files_to_docs(path_chall)
+
+
+def move_files_to_docs(path_chall):
     files = os.listdir(path_chall)
     for file in files:
         if '.png' in file:
-            os.rename(path_chall+file, settings.DOCS_PATH+'img/'+file)
+            os.rename(path_chall + file, settings.DOCS_PATH + 'img/' + file)
 
 
 def define_challenges():
@@ -57,6 +70,25 @@ def define_challenges():
                    challenge =True)
 
     return challenges
+
+
+def define_examples():
+
+    examples = demoprograms.DemoPrograms()
+
+    examples.new(title='Print hello world',
+                   name='print_hello_world',
+                   comments='This is your first program',
+                   challenge =False)
+
+    examples.new(title='printf options',
+                   name='printf_options',
+                   comments='This program shows the options in printf',
+                   challenge =False)
+
+    return examples
+
+
 #
 #
 # def get_bitmaps():

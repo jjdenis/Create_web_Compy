@@ -1,20 +1,40 @@
 {% extends "base.html" %}
 {% block title %}Examples{% endblock %}
+
 {% block head %}
     {{ super() }}
-    <style type="text/css">
-        .important { color: #336699; }
-    </style>
+
+    <script>
+
+    $(document).ready(function(){
+
+    {% for html, jquery in challenges %}
+
+        {{ jquery }}
+
+    {% endfor %}
+
+
+    });
+
+    </script>
+
 {% endblock %}
 
 
 {% block content %}
 
+<h1> Examples </h1>
 
-<h1> Examples</h1>
+    Here you will find examples and their solutions.
 
-    <p> Here we show examples of the commands you can
-    issue to the Compy screen.</p>
+
+
+{% for body_html, jq in challenges %}
+
+    {{ body_html }}
+
+{% endfor %}
 
 
 
