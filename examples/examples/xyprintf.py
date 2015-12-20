@@ -1,10 +1,19 @@
 
-
 def my_program():
 
-    printf('Hello world !!!')
+    clear_screen()
 
+    xyprintf(5, 5, 'This is how xyprintf prints')
 
+    xyprintf(0, 0, 'Origin is at the bottom left')
+
+    xyprintf(13, 20, "Text doesn't wrap at the end of the line ")
+
+    xyprintf(1, 24, 'Easily print numbers (',  10, ') and letters', )
+
+    printf(color='light-yellow')
+
+    xyprintf(1, 23, 'To print in colors, use a trick')
 
 
 
@@ -61,4 +70,5 @@ compy.run(redefine_commands)
 
 ###########################################################################
 ###########################################################################
+
 

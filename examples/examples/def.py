@@ -1,13 +1,23 @@
 
-
 def my_program():
 
-    printf('Hello world !!!')
+    clear_screen()
 
+    printf()
 
+    printf('This program shows how "def" works')
 
+    number = 1
 
+    while number != 0:
+        number = input_and_double_number()
+    printf('Bye!!', color='light-red')
 
+def input_and_double_number():
+    number = input('Give me a number ', color='light-green')
+    printf(2 * number, color='light-blue')
+    printf()
+    return number
 
 
 ###########################################################################
@@ -61,4 +71,5 @@ compy.run(redefine_commands)
 
 ###########################################################################
 ###########################################################################
+
 

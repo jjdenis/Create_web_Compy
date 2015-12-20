@@ -1,5 +1,3 @@
-import compy
-
 
 def my_program():
 

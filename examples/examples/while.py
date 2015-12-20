@@ -1,10 +1,19 @@
 
-
 def my_program():
 
-    printf('Hello world !!!')
+    clear_screen()
 
+    printf()
 
+    printf('This program shows how "while" works')
+
+    number_of_times = 0
+
+    while number_of_times < 10:
+
+        number_of_times = number_of_times + 1
+
+        printf(number_of_times)
 
 
 
@@ -61,4 +70,5 @@ compy.run(redefine_commands)
 
 ###########################################################################
 ###########################################################################
+
 

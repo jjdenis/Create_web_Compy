@@ -11,6 +11,7 @@ def my_program():
     printf()
     printf()
 
+    printf('             ', stay=True)
     printf('          ', reverse = True, color = 'light-yellow')
 
 

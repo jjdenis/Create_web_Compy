@@ -1,11 +1,26 @@
 
-
 def my_program():
 
-    printf('Hello world !!!')
+    clear_screen()
+
+    printf('This program shows how "input" works')
+
+    name = input('What is your name? ')
+
+    printf()
+
+    printf('Hello, ', stay = True)
+
+    printf(name)
 
 
+    age = input('And how old are you? ')
 
+    printf()
+
+    printf('Last year you were ', stay = True)
+
+    printf(age - 1)
 
 
 
@@ -61,4 +76,5 @@ compy.run(redefine_commands)
 
 ###########################################################################
 ###########################################################################
+
 
