@@ -1,20 +1,35 @@
 
 def my_program():
-
     clear_screen()
+    msg = 'Here we show how to print text and numbers.'
+    printf(msg)
 
-    xyprintf(5, 5, 'This is how xyprintf prints')
+    printf()
 
-    xyprintf(0, 0, 'Origin is at the bottom left')
+    printf('You first create a string that contains the numbers')
+    printf('To do that, you need to use braces, a point, and the word "format" ')
+    printf('Lets print a number inside a text string:')
+    msg = 'I am {} years old'.format(46)
+    printf(msg, color='yellow')
 
-    xyprintf(13, 20, "Text doesn't wrap at the end of the line ")
+    printf()
 
-    printf(color='light-yellow')
+    printf('You can also use variables and print text inside text:', color='light-blue')
+    age = 46
+    name = 'Juanjo'
+    msg = 'Hello, mi name is {}, I am {} years old'.format(name, age)
+    printf(msg, color = 'yellow')
 
-    xyprintf(1, 23, 'To print in colors, use a trick')
+    printf()
 
-
-
+    printf('You can also format the number, the options are many, this one is useful:', color='light-blue')
+    age_universe = 15000000000
+    msg = 'No format: The universe is {} years old'.format(age_universe)
+    printf(msg, color='yellow')
+    msg = 'Formatted: The universe is {:g} years old'.format(age_universe)
+    printf(msg)
+    msg = 'Another format: The universe is {:,} years old'.format(age_universe)
+    printf(msg)
 
 
 ###########################################################################
