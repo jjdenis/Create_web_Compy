@@ -96,6 +96,18 @@ def define_challenges():
         challenge =True)
 
     challenges.new(
+        name='squares',
+        title='Squares table',
+        comments='Can you do that?',
+        challenge =True)
+
+    challenges.new(
+        name='exponential',
+        title='Exponential table',
+        comments='Can you do that?',
+        challenge =True)
+
+    challenges.new(
         name='mult_table',
         title='Multiplication table',
         comments='Can you do that?',
@@ -154,6 +166,12 @@ the reversed mode and if the next line will be printed following the current one
     examples.new(
         name='while', title='The command <code>while</code>',  challenge =False,
         comments='The command <code>while</code> loops until certain condition is met'
+        )
+
+    examples.new(
+        name='wait_time',
+        title='The command <code>sleep</code>',  challenge =False,
+        comments='The command <code>sleep</code> stops execution for a given number of seconds'
         )
 
     return examples

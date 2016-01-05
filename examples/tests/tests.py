@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 #  -*- coding: utf-8 -*-
 
-from time import sleep
+from wait_time import sleep
 import random
 
 A = 65
