@@ -90,6 +90,18 @@ def define_challenges():
         challenge =True)
 
     challenges.new(
+        name='long_word',
+        title='Make a long word',
+        comments='Can you do that?',
+        challenge =True)
+
+    challenges.new(
+        name='mult_table',
+        title='Multiplication table',
+        comments='Can you do that?',
+        challenge =True)
+
+    challenges.new(
         title='Guess the number',
         name='guess_the_number',
         comments='Can you do that?',
