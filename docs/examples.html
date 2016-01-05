@@ -125,6 +125,15 @@ $("button.xyprintf ").click(function(){ $("div.xyprintf ").toggle();  });
 
         
 
+$("div.print_text_and_numbers ").hide();
+$("button.print_text_and_numbers ").click(function(){ $("div.print_text_and_numbers ").toggle();  });
+
+
+
+    
+
+        
+
 $("div.input ").hide();
 $("button.input ").click(function(){ $("div.input ").toggle();  });
 
@@ -134,8 +143,8 @@ $("button.input ").click(function(){ $("div.input ").toggle();  });
 
         
 
-$("div.while ").hide();
-$("button.while ").click(function(){ $("div.while ").toggle();  });
+$("div.def ").hide();
+$("button.def ").click(function(){ $("div.def ").toggle();  });
 
 
 
@@ -143,8 +152,17 @@ $("button.while ").click(function(){ $("div.while ").toggle();  });
 
         
 
-$("div.def ").hide();
-$("button.def ").click(function(){ $("div.def ").toggle();  });
+$("div.if_elif_else ").hide();
+$("button.if_elif_else ").click(function(){ $("div.if_elif_else ").toggle();  });
+
+
+
+    
+
+        
+
+$("div.while ").hide();
+$("button.while ").click(function(){ $("div.while ").toggle();  });
 
 
 
@@ -354,7 +372,7 @@ the reversed mode and if the next line will be printed following the current one
 
     
 
-        <h2 id="xyprintf "> xyprintf options </h2>
+        <h2 id="xyprintf "> Start printing in a specific place: xyprint </h2>
 
             <p> xyprintf prints in a fixed position </p>
 
@@ -378,6 +396,108 @@ the reversed mode and if the next line will be printed following the current one
 
 
 
+
+
+<span class="c">###########################################################################</span>
+<span class="c">###########################################################################</span>
+<span class="c"># The next lines are needed to run compy, don&#39;t mind them,</span>
+<span class="c"># but keep them, don&#39;t get rid of these lines</span>
+<span class="c">###########################################################################</span>
+<span class="c">###########################################################################</span>
+
+<span class="k">def</span> <span class="nf">clear_screen</span><span class="p">():</span> <span class="k">pass</span>
+
+<span class="k">def</span> <span class="nf">set_bg_color</span><span class="p">(</span><span class="n">color</span><span class="p">):</span> <span class="k">pass</span>
+
+<span class="k">def</span> <span class="nf">set_fm_color</span><span class="p">(</span><span class="n">color</span><span class="p">):</span> <span class="k">pass</span>
+
+<span class="k">def</span> <span class="nf">printf</span><span class="p">(</span><span class="n">to_print</span><span class="o">=</span><span class="s">&#39;&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">stay</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span> <span class="k">pass</span>
+
+<span class="k">def</span> <span class="nf">xyprintf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span> <span class="k">pass</span>
+
+<span class="k">def</span> <span class="nf">poke</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">code</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span> <span class="k">pass</span>
+
+<span class="k">def</span> <span class="nf">peek</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span> <span class="k">pass</span>
+
+<span class="k">def</span> <span class="nf">input</span><span class="p">(</span><span class="n">message</span> <span class="o">=</span> <span class="s">&#39;&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span> <span class="k">pass</span>
+
+<span class="k">def</span> <span class="nf">wait_key</span><span class="p">():</span> <span class="k">pass</span>
+
+<span class="k">def</span> <span class="nf">check_key</span><span class="p">():</span> <span class="k">pass</span>
+
+<span class="k">def</span> <span class="nf">redefine_commands</span><span class="p">(</span><span class="n">screen</span><span class="p">):</span>
+
+    <span class="k">global</span> <span class="n">clear_screen</span><span class="p">,</span> <span class="n">set_bg_color</span><span class="p">,</span> <span class="n">set_fm_color</span><span class="p">,</span> <span class="n">printf</span><span class="p">,</span> <span class="n">xyprintf</span>
+    <span class="k">global</span> <span class="n">poke</span><span class="p">,</span> <span class="n">peek</span><span class="p">,</span> <span class="nb">input</span><span class="p">,</span> <span class="n">wait_key</span><span class="p">,</span> <span class="n">check_key</span>
+
+    <span class="n">clear_screen</span> <span class="o">=</span> <span class="n">screen</span><span class="o">.</span><span class="n">clear_screen</span>
+    <span class="n">set_bg_color</span> <span class="o">=</span> <span class="n">screen</span><span class="o">.</span><span class="n">set_bg_color</span>
+    <span class="n">set_fm_color</span> <span class="o">=</span> <span class="n">screen</span><span class="o">.</span><span class="n">set_fm_color</span>
+    <span class="n">printf</span> <span class="o">=</span> <span class="n">screen</span><span class="o">.</span><span class="n">printf</span>
+    <span class="n">xyprintf</span> <span class="o">=</span> <span class="n">screen</span><span class="o">.</span><span class="n">xyprintf</span>
+    <span class="n">poke</span> <span class="o">=</span> <span class="n">screen</span><span class="o">.</span><span class="n">poke</span>
+    <span class="n">peek</span> <span class="o">=</span> <span class="n">screen</span><span class="o">.</span><span class="n">peek</span>
+    <span class="nb">input</span> <span class="o">=</span> <span class="n">screen</span><span class="o">.</span><span class="n">input</span>
+    <span class="n">wait_key</span> <span class="o">=</span> <span class="n">screen</span><span class="o">.</span><span class="n">wait_key</span>
+    <span class="n">check_key</span> <span class="o">=</span> <span class="n">screen</span><span class="o">.</span><span class="n">check_key</span>
+
+    <span class="n">my_program</span><span class="p">()</span>
+
+<span class="kn">import</span> <span class="nn">compy</span>
+
+<span class="n">compy</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">redefine_commands</span><span class="p">)</span>
+
+<span class="c">###########################################################################</span>
+<span class="c">###########################################################################</span>
+</pre></div>
+ </code></div>
+
+            <hr/>
+
+
+
+
+    
+
+        <h2 id="print_text_and_numbers "> print text and numbers </h2>
+
+            <p> Many times you have to print numbers inside a string </p>
+
+            <p><img src="img/print_text_and_numbers.png" alt="" /></p>
+
+            <button class="print_text_and_numbers "> Solution </button>
+
+            <div class="code print_text_and_numbers "><code> <div class="highlight"><pre><span class="k">def</span> <span class="nf">my_program</span><span class="p">():</span>
+    <span class="n">clear_screen</span><span class="p">()</span>
+    <span class="n">msg</span> <span class="o">=</span> <span class="s">&#39;Here we show how to print text and numbers.&#39;</span>
+    <span class="n">printf</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+    <span class="n">printf</span><span class="p">()</span>
+
+    <span class="n">printf</span><span class="p">(</span><span class="s">&#39;You first create a string that contains the numbers&#39;</span><span class="p">)</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&#39;To do that, you need to use braces, a point, and the word &quot;format&quot; &#39;</span><span class="p">)</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&#39;Lets print a number inside a text string:&#39;</span><span class="p">)</span>
+    <span class="n">msg</span> <span class="o">=</span> <span class="s">&#39;I am {} years old&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mi">46</span><span class="p">)</span>
+    <span class="n">printf</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">&#39;yellow&#39;</span><span class="p">)</span>
+
+    <span class="n">printf</span><span class="p">()</span>
+
+    <span class="n">printf</span><span class="p">(</span><span class="s">&#39;You can also use variables and print text inside text:&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">&#39;light-blue&#39;</span><span class="p">)</span>
+    <span class="n">age</span> <span class="o">=</span> <span class="mi">46</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s">&#39;Juanjo&#39;</span>
+    <span class="n">msg</span> <span class="o">=</span> <span class="s">&#39;Hello, mi name is {}, I am {} years old&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">)</span>
+    <span class="n">printf</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s">&#39;yellow&#39;</span><span class="p">)</span>
+
+    <span class="n">printf</span><span class="p">()</span>
+
+    <span class="n">printf</span><span class="p">(</span><span class="s">&#39;You can also format the number, the options are many, this one is useful:&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">&#39;light-blue&#39;</span><span class="p">)</span>
+    <span class="n">age_universe</span> <span class="o">=</span> <span class="mi">15000000000</span>
+    <span class="n">msg</span> <span class="o">=</span> <span class="s">&#39;No format: The universe is {} years old&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">age_universe</span><span class="p">)</span>
+    <span class="n">printf</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">&#39;yellow&#39;</span><span class="p">)</span>
+    <span class="n">msg</span> <span class="o">=</span> <span class="s">&#39;Formatted: The universe is {:g} years old&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">age_universe</span><span class="p">)</span>
+    <span class="n">printf</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+    <span class="n">msg</span> <span class="o">=</span> <span class="s">&#39;Another format: The universe is {:,} years old&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">age_universe</span><span class="p">)</span>
+    <span class="n">printf</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
 
 
 <span class="c">###########################################################################</span>
@@ -536,30 +656,135 @@ the reversed mode and if the next line will be printed following the current one
 
     
 
-        <h2 id="while "> The command <code>while</code> </h2>
+        <h2 id="def "> The command <code>def</code> </h2>
 
-            <p> The command <code>while</code> loops until certain condition is met </p>
+            <p> The command <code>def</code> defines new commands </p>
 
-            <p><img src="img/while.png" alt="" /></p>
+            <p><img src="img/def.png" alt="" /></p>
 
-            <button class="while "> Solution </button>
+            <button class="def "> Solution </button>
 
-            <div class="code while "><code> <div class="highlight"><pre><span class="k">def</span> <span class="nf">my_program</span><span class="p">():</span>
+            <div class="code def "><code> <div class="highlight"><pre><span class="k">def</span> <span class="nf">my_program</span><span class="p">():</span>
 
     <span class="n">clear_screen</span><span class="p">()</span>
 
     <span class="n">printf</span><span class="p">()</span>
 
-    <span class="n">printf</span><span class="p">(</span><span class="s">&#39;This program shows how &quot;while&quot; works&#39;</span><span class="p">)</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&#39;This program shows how &quot;def&quot; works&#39;</span><span class="p">)</span>
 
-    <span class="n">number_of_times</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">first</span><span class="p">,</span> <span class="n">second</span> <span class="o">=</span> <span class="n">ask_for_two_numbers</span><span class="p">()</span>
 
-    <span class="k">while</span> <span class="n">number_of_times</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
+    <span class="n">sum_of_numbers</span> <span class="o">=</span> <span class="n">sum_two_numbers</span><span class="p">(</span><span class="n">first</span><span class="p">,</span> <span class="n">second</span><span class="p">)</span>
 
-        <span class="n">number_of_times</span> <span class="o">=</span> <span class="n">number_of_times</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="n">print_response</span><span class="p">(</span><span class="n">first</span><span class="p">,</span> <span class="n">second</span><span class="p">,</span> <span class="n">sum_of_numbers</span><span class="p">)</span>
 
-        <span class="n">printf</span><span class="p">(</span><span class="n">number_of_times</span><span class="p">)</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&#39;Bye!!&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">&#39;light-red&#39;</span><span class="p">)</span>
 
+
+<span class="c"># This function doesn&#39;t receive values, but returns two values</span>
+<span class="k">def</span> <span class="nf">ask_for_two_numbers</span><span class="p">():</span>
+    <span class="n">n1</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">&#39;Give me a number &#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">&#39;light-green&#39;</span><span class="p">)</span>
+    <span class="n">n2</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">&#39;Give me another number &#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">&#39;light-green&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">n1</span><span class="p">,</span> <span class="n">n2</span>
+
+
+<span class="c"># This function receives two values and returns one</span>
+<span class="k">def</span> <span class="nf">sum_two_numbers</span><span class="p">(</span><span class="n">n1</span><span class="p">,</span> <span class="n">n2</span><span class="p">):</span>
+    <span class="nb">sum</span> <span class="o">=</span> <span class="n">n1</span> <span class="o">+</span> <span class="n">n2</span>
+    <span class="k">return</span> <span class="nb">sum</span>
+
+
+<span class="c"># This function receives three values, but doesn&#39;t return any</span>
+<span class="k">def</span> <span class="nf">print_response</span><span class="p">(</span><span class="n">n1</span><span class="p">,</span> <span class="n">n2</span><span class="p">,</span> <span class="nb">sum</span><span class="p">):</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="s">&#39;The sum of {} and {} is {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n1</span><span class="p">,</span> <span class="n">n2</span><span class="p">,</span> <span class="nb">sum</span><span class="p">)</span>
+    <span class="n">printf</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+
+
+<span class="c">###########################################################################</span>
+<span class="c">###########################################################################</span>
+<span class="c"># The next lines are needed to run compy, don&#39;t mind them,</span>
+<span class="c"># but keep them, don&#39;t get rid of these lines</span>
+<span class="c">###########################################################################</span>
+<span class="c">###########################################################################</span>
+
+<span class="k">def</span> <span class="nf">clear_screen</span><span class="p">():</span> <span class="k">pass</span>
+
+<span class="k">def</span> <span class="nf">set_bg_color</span><span class="p">(</span><span class="n">color</span><span class="p">):</span> <span class="k">pass</span>
+
+<span class="k">def</span> <span class="nf">set_fm_color</span><span class="p">(</span><span class="n">color</span><span class="p">):</span> <span class="k">pass</span>
+
+<span class="k">def</span> <span class="nf">printf</span><span class="p">(</span><span class="n">to_print</span><span class="o">=</span><span class="s">&#39;&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">stay</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span> <span class="k">pass</span>
+
+<span class="k">def</span> <span class="nf">xyprintf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span> <span class="k">pass</span>
+
+<span class="k">def</span> <span class="nf">poke</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">code</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span> <span class="k">pass</span>
+
+<span class="k">def</span> <span class="nf">peek</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span> <span class="k">pass</span>
+
+<span class="k">def</span> <span class="nf">input</span><span class="p">(</span><span class="n">message</span> <span class="o">=</span> <span class="s">&#39;&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span> <span class="k">return</span> <span class="bp">None</span>
+
+<span class="k">def</span> <span class="nf">wait_key</span><span class="p">():</span> <span class="k">pass</span>
+
+<span class="k">def</span> <span class="nf">check_key</span><span class="p">():</span> <span class="k">pass</span>
+
+<span class="k">def</span> <span class="nf">redefine_commands</span><span class="p">(</span><span class="n">screen</span><span class="p">):</span>
+
+    <span class="k">global</span> <span class="n">clear_screen</span><span class="p">,</span> <span class="n">set_bg_color</span><span class="p">,</span> <span class="n">set_fm_color</span><span class="p">,</span> <span class="n">printf</span><span class="p">,</span> <span class="n">xyprintf</span>
+    <span class="k">global</span> <span class="n">poke</span><span class="p">,</span> <span class="n">peek</span><span class="p">,</span> <span class="nb">input</span><span class="p">,</span> <span class="n">wait_key</span><span class="p">,</span> <span class="n">check_key</span>
+
+    <span class="n">clear_screen</span> <span class="o">=</span> <span class="n">screen</span><span class="o">.</span><span class="n">clear_screen</span>
+    <span class="n">set_bg_color</span> <span class="o">=</span> <span class="n">screen</span><span class="o">.</span><span class="n">set_bg_color</span>
+    <span class="n">set_fm_color</span> <span class="o">=</span> <span class="n">screen</span><span class="o">.</span><span class="n">set_fm_color</span>
+    <span class="n">printf</span> <span class="o">=</span> <span class="n">screen</span><span class="o">.</span><span class="n">printf</span>
+    <span class="n">xyprintf</span> <span class="o">=</span> <span class="n">screen</span><span class="o">.</span><span class="n">xyprintf</span>
+    <span class="n">poke</span> <span class="o">=</span> <span class="n">screen</span><span class="o">.</span><span class="n">poke</span>
+    <span class="n">peek</span> <span class="o">=</span> <span class="n">screen</span><span class="o">.</span><span class="n">peek</span>
+    <span class="nb">input</span> <span class="o">=</span> <span class="n">screen</span><span class="o">.</span><span class="n">input</span>
+    <span class="n">wait_key</span> <span class="o">=</span> <span class="n">screen</span><span class="o">.</span><span class="n">wait_key</span>
+    <span class="n">check_key</span> <span class="o">=</span> <span class="n">screen</span><span class="o">.</span><span class="n">check_key</span>
+
+    <span class="n">my_program</span><span class="p">()</span>
+
+<span class="kn">import</span> <span class="nn">compy</span>
+
+<span class="n">compy</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">redefine_commands</span><span class="p">)</span>
+
+<span class="c">###########################################################################</span>
+<span class="c">###########################################################################</span>
+</pre></div>
+ </code></div>
+
+            <hr/>
+
+
+
+
+    
+
+        <h2 id="if_elif_else "> The command <code>if</code> </h2>
+
+            <p> The command <code>if</code> checks a condition </p>
+
+            <p><img src="img/if_elif_else.png" alt="" /></p>
+
+            <button class="if_elif_else "> Solution </button>
+
+            <div class="code if_elif_else "><code> <div class="highlight"><pre><span class="k">def</span> <span class="nf">my_program</span><span class="p">():</span>
+
+    <span class="n">clear_screen</span><span class="p">()</span>
+
+    <span class="n">name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">&#39;What is your name? &#39;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">name</span> <span class="o">==</span> <span class="s">&#39;JUANJO&#39;</span> <span class="ow">or</span> <span class="n">name</span> <span class="o">==</span> <span class="s">&#39;PAULA&#39;</span><span class="p">:</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="s">&#39;Hello {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+
+    <span class="k">elif</span> <span class="n">name</span> <span class="o">==</span> <span class="s">&#39;ANA&#39;</span> <span class="ow">or</span> <span class="n">name</span> <span class="o">==</span> <span class="s">&#39;MIGUEL&#39;</span><span class="p">:</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="s">&#39;Hello {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="s">&#39;I do not recognize you, please forget about me, {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+
+    <span class="n">printf</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
 
 
 
@@ -625,33 +850,35 @@ the reversed mode and if the next line will be printed following the current one
 
     
 
-        <h2 id="def "> The command <code>def</code> </h2>
+        <h2 id="while "> The command <code>while</code> </h2>
 
-            <p> The command <code>def</code> defines new commands </p>
+            <p> The command <code>while</code> loops until certain condition is met </p>
 
-            <p><img src="img/def.png" alt="" /></p>
+            <p><img src="img/while.png" alt="" /></p>
 
-            <button class="def "> Solution </button>
+            <button class="while "> Solution </button>
 
-            <div class="code def "><code> <div class="highlight"><pre><span class="k">def</span> <span class="nf">my_program</span><span class="p">():</span>
+            <div class="code while "><code> <div class="highlight"><pre><span class="k">def</span> <span class="nf">my_program</span><span class="p">():</span>
 
     <span class="n">clear_screen</span><span class="p">()</span>
 
     <span class="n">printf</span><span class="p">()</span>
 
-    <span class="n">printf</span><span class="p">(</span><span class="s">&#39;This program shows how &quot;def&quot; works&#39;</span><span class="p">)</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&#39;This program shows how &quot;while&quot; works&#39;</span><span class="p">)</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&#39;It will count from 1 to 10&#39;</span><span class="p">)</span>
 
-    <span class="n">number</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
 
-    <span class="k">while</span> <span class="n">number</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="n">number</span> <span class="o">=</span> <span class="n">input_and_double_number</span><span class="p">()</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&#39;Bye!!&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">&#39;light-red&#39;</span><span class="p">)</span>
+    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
 
-<span class="k">def</span> <span class="nf">input_and_double_number</span><span class="p">():</span>
-    <span class="n">number</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">&#39;Give me a number &#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">&#39;light-green&#39;</span><span class="p">)</span>
-    <span class="n">printf</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">number</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">&#39;light-blue&#39;</span><span class="p">)</span>
-    <span class="n">printf</span><span class="p">()</span>
-    <span class="k">return</span> <span class="n">number</span>
+        <span class="n">count</span> <span class="o">=</span> <span class="n">count</span> <span class="o">+</span> <span class="mi">1</span>
+
+        <span class="n">printf</span><span class="p">(</span><span class="n">count</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">count</span> <span class="o">==</span> <span class="mi">10</span><span class="p">:</span>
+            <span class="k">break</span>
+
+
 
 
 <span class="c">###########################################################################</span>

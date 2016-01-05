@@ -3,36 +3,20 @@ def my_program():
 
     clear_screen()
 
-    printf()
+    name = input('What is your name? ')
 
-    printf('This program shows how "def" works')
+    if name == 'JUANJO' or name == 'PAULA':
+        msg = 'Hello {}'.format(name)
 
-    first, second = ask_for_two_numbers()
+    elif name == 'ANA' or name == 'MIGUEL':
+        msg = 'Hello {}'.format(name)
 
-    sum_of_numbers = sum_two_numbers(first, second)
+    else:
+        msg = 'I do not recognize you, please forget about me, {}'.format(name)
 
-    print_response(first, second, sum_of_numbers)
-
-    printf('Bye!!', color='light-red')
-
-
-# This function doesn't receive values, but returns two values
-def ask_for_two_numbers():
-    n1 = input('Give me a number ', color='light-green')
-    n2 = input('Give me another number ', color='light-green')
-    return n1, n2
+    printf(msg, color=4)
 
 
-# This function receives two values and returns one
-def sum_two_numbers(n1, n2):
-    sum = n1 + n2
-    return sum
-
-
-# This function receives three values, but doesn't return any
-def print_response(n1, n2, sum):
-    response = 'The sum of {} and {} is {}'.format(n1, n2, sum)
-    printf(response)
 
 
 ###########################################################################
@@ -56,7 +40,7 @@ def poke(x, y, code, color = None, reverse=False): pass
 
 def peek(self, x, y): pass
 
-def input(message = '', color=None): return None
+def input(message = '', color=None): pass
 
 def wait_key(): pass
 

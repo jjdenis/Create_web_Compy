@@ -61,13 +61,26 @@ def define_challenges():
 
     challenges.new(title='Sum two numbers',
                    name='sum_two_values',
-                   comments='This is a simple example, ',
+                   comments='Can you do that?',
                    challenge =True)
 
-    challenges.new(title='Guess the number',
-                   name='guess_the_number',
-                   comments='This is a simple example, ',
-                   challenge =True)
+    challenges.new(
+        name='loop_validation',
+        title='Validation using a loop',
+        comments='Can you do that?',
+        challenge =True)
+
+    challenges.new(
+        name='loop_sentinel',
+        title='Loop until user finishes',
+        comments='Can you do that?',
+        challenge =True)
+
+    challenges.new(
+        title='Guess the number',
+        name='guess_the_number',
+        comments='Can you do that?',
+        challenge =True)
 
     return challenges
 
@@ -77,35 +90,45 @@ def define_examples():
     examples = demoprograms.DemoPrograms()
 
     examples.new(
-        title='Print hello world', name='print_hello_world', challenge =False,
+        name='print_hello_world', title='Print hello world', challenge =False,
         comments='This is your first program: copy the code in a text file, name the file "print_hello_world.py", and '
                  'run it with this command <code>pythonw print_hello_world.py</code>',
         )
 
     examples.new(
-        title='Learn how printf works', name='printf_options', challenge =False,
+        name='printf_options', title='Learn how printf works', challenge =False,
         comments="""To print in Compy, you can use the command called 'printf'.
 printf wraps the line at the end of the screen. With printf you can control the color,
 the reversed mode and if the next line will be printed following the current one"""
           )
 
-    examples.new(title='xyprintf options', name='xyprintf', challenge =False,
+    examples.new(name='xyprintf', title='Start printing in a specific place: xyprint', challenge =False,
         comments='xyprintf prints in a fixed position'
         )
 
     examples.new(
-        title='The command <code>input</code>', name='input', challenge =False,
+        name='print_text_and_numbers', title='print text and numbers', challenge =False,
+        comments='Many times you have to print numbers inside a string'
+        )
+
+    examples.new(
+        name='input', title='The command <code>input</code>', challenge =False,
         comments='The command <code>input</code> asks you for a texts string or a number'
         )
 
     examples.new(
-        title='The command <code>while</code>', name='while', challenge =False,
-        comments='The command <code>while</code> loops until certain condition is met'
+        name='def', title='The command <code>def</code>', challenge =False,
+        comments='The command <code>def</code> defines new commands'
         )
 
     examples.new(
-        title='The command <code>def</code>', name='def', challenge =False,
-        comments='The command <code>def</code> defines new commands'
+        name='if_elif_else', title='The command <code>if</code>',  challenge =False,
+        comments='The command <code>if</code> checks a condition'
+        )
+
+    examples.new(
+        name='while', title='The command <code>while</code>',  challenge =False,
+        comments='The command <code>while</code> loops until certain condition is met'
         )
 
     return examples
