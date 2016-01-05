@@ -6,15 +6,18 @@ def my_program():
     printf()
 
     printf('This program shows how "while" works')
+    printf('It will count from 1 to 10')
 
-    number_of_times = 0
+    count = 0
 
-    while number_of_times < 10:
+    while True:
 
-        number_of_times = number_of_times + 1
+        count = count + 1
 
-        printf(number_of_times)
+        printf(count)
 
+        if count == 10:
+            break
 
 
 

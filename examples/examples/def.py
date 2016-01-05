@@ -7,17 +7,26 @@ def my_program():
 
     printf('This program shows how "def" works')
 
-    number = 1
+    first, second = ask_for_two_numbers()
 
-    while number != 0:
-        number = input_and_double_number()
+    sum_of_numbers = sum_two_numbers(first, second)
+
+    print_response(first, second, sum_of_numbers)
+
     printf('Bye!!', color='light-red')
 
-def input_and_double_number():
-    number = input('Give me a number ', color='light-green')
-    printf(2 * number, color='light-blue')
-    printf()
-    return number
+def ask_for_two_numbers():
+    n1 = input('Give me a number ', color='light-green')
+    n2 = input('Give me another number ', color='light-green')
+    return n1, n2
+
+def sum_two_numbers(n1, n2):
+    sum = n1 + n2
+    return sum
+
+def print_response(n1, n2, sum):
+    response = 'The sum of {} and {} is {}'.format(n1, n2, sum)
+    printf(response)
 
 
 ###########################################################################
