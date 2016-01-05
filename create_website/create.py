@@ -47,7 +47,7 @@ def move_files_to_docs(path_chall):
     files = os.listdir(path_chall)
     for file in files:
         if '.png' in file:
-            os.rename(path_chall + file, settings.DOCS_PATH + 'img/' + file)
+            os.rename(path_chall + file, settings.WEBSITE_PATH + 'img/' + file)
 
 
 def define_challenges():
@@ -59,10 +59,17 @@ def define_challenges():
                    comments='Can you draw a yellow line like the one in this example?',
                    challenge =True)
 
-    challenges.new(title='Sum two numbers',
-                   name='sum_two_values',
-                   comments='Can you do that?',
-                   challenge =True)
+    challenges.new(
+        name='sum_two_values',
+        title='Sum two numbers',
+        comments='Can you do that?',
+        challenge =True)
+
+    challenges.new(
+        name='minimum_two_values',
+        title='Find the minimum of two numbers',
+        comments='Can you do that?',
+        challenge =True)
 
     challenges.new(
         name='loop_validation',
@@ -72,7 +79,13 @@ def define_challenges():
 
     challenges.new(
         name='loop_sentinel',
-        title='Loop until user finishes',
+        title='Sum many values entered by user, using a loop',
+        comments='Can you do that?',
+        challenge =True)
+
+    challenges.new(
+        name='minimum_many_values',
+        title='Find the minimum of many values entered by the user',
         comments='Can you do that?',
         challenge =True)
 

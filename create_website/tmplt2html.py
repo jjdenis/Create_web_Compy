@@ -3,7 +3,7 @@
 
 import codecs
 
-from create_website.settings import DOCS_PATH, jinja_environment_templates
+from create_website.settings import WEBSITE_PATH, jinja_environment_templates
 
 def render(name_html, **kwargs):
 
@@ -11,7 +11,7 @@ def render(name_html, **kwargs):
 
     md_text = template.render(**kwargs)
 
-    final_path = DOCS_PATH + '{}'.format(name_html)
+    final_path = WEBSITE_PATH + '{}'.format(name_html)
     f = codecs.open(final_path, 'w', 'utf-8')
     f.write(md_text)
     f.close()
