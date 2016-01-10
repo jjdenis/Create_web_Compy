@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block title %}Examples{% endblock %}
+
+{% block head %}
+
+    {{ super() }}
+
+    <script>
+
+    $(document).ready(function(){
+
+    {% for program in programs %}
+
+        {{ program.jquery }}
+
+    {% endfor %}
+
+
+    });
+
+    </script>
+
+{% endblock %}
+
+
+{% block content %}
+
+<h1> Lessons </h1>
+
+    Here you will find two kinds of code:
+
+<ul>
+    <li> Examples and their solutions </li>
+    <li> Challenges </li>
+
+</ul>
+
+
+
+{% for program in programs %}
+
+    {{ program.html }}
+
+{% endfor %}
+
+
+
+{% endblock %}

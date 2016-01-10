@@ -8,18 +8,40 @@ import pygments
 from pygments.lexers import PythonLexer
 from pygments.formatters import HtmlFormatter
 
-from create_website.settings import CODE_PATH
+import settings
 
-class DemoProgram(object):
+Composed = namedtuple('Composed', ['html', 'jquery'], verbose=False)
 
-    def __init__(self, title, name, comments, challenge):
+class DemoProgramsHtmlCreator(object):
+
+    def __init__(self):
+        self.programs = []
+
+    def new(self, title, name, text, type):
+        dp = OneDemoProgramHtmlCreator(title, name, text, type)
+        self.programs.append(dp)
+
+    def create(self):
+        composed = []
+        for program in self.programs:
+            html = program.compose_html()
+            jquery = program.compose_jquery()
+            one_composed = Composed(html, jquery)
+            composed.append(one_composed)
+        return composed
+
+
+
+class OneDemoProgramHtmlCreator(object):
+
+    def __init__(self, title, name, comments, type):
         self.title = title
         self.name = name
         self.comments = comments
-        self.challenge = challenge
+        self.type = type
 
     def compose_html(self):
-        code = self.get_code(self.name, self.challenge)
+        code = self.get_code(self.name, self.type)
         code_html = self.code2html(code)
         html = example_template.substitute(
             name=self.name,
@@ -29,12 +51,12 @@ class DemoProgram(object):
             )
         return html
 
-    def get_code(self, name, is_challenge):
-        path = CODE_PATH
-        if is_challenge:
-            path += 'challenges/'
+    def get_code(self, name, type):
+        path=''
+        if type=='challenge':
+            path = settings.CHALLENGES_PATH
         else:
-            path += 'examples/'
+            path = settings.EXAMPLES_PATH
         fn = path + '{}.py'.format(name)
 
         f = codecs.open(fn, 'r', 'utf-8')
@@ -50,19 +72,6 @@ class DemoProgram(object):
         jq = jquery_template.format(name=self.name)
         return jq
 
-
-
-class DemoPrograms(object):
-
-    def __init__(self):
-        self.examples = []
-
-    def new(self, title, name, comments, challenge):
-        self.examples.append(DemoProgram(title, name, comments, challenge))
-
-    def __iter__(self):
-        for example in self.examples:
-            yield example.compose_html(), example.compose_jquery()
 
 
 

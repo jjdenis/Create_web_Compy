@@ -1,16 +1,13 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-# Two modes of operation, if True, it helps with website
-# this is for development.
-# If false, the screenshots will be in the base path.
-# This is for use after pip install
 from jinja2 import Environment, PackageLoader
 
 SAVE_TO_DOCS_PATH = True
 
-WEBSITE_PATH   = u'/Users/jjdenis/Dropbox/Familia/Programas/ProyectoCompy/web_compy/website/'
-SCREENSHOTS_PATH = u'/Users/jjdenis/Dropbox/Familia/Programas/ProyectoCompy/web_compy/website/img/'
-CODE_PATH   = u'/Users/jjdenis/Dropbox/Familia/Programas/ProyectoCompy/web_compy/examples/'
+WEBSITE_PATH   = u'website/'
+SCREENSHOTS_PATH = u'website/img/'
+EXAMPLES_PATH   = u'/Users/jjdenis/Dropbox/Familia/Programas/ProyectoCompy/compy/'
+CHALLENGES_PATH   = u'challenges/'
 
 jinja_environment_templates = Environment(loader=PackageLoader('create_website', 'templates'))

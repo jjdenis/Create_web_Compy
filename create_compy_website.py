@@ -3,8 +3,10 @@
 
 import webbrowser
 
-from create_website.create import make_all_html
+import create_website.create_the_website
 
-make_all_html()
+create_website.create_the_website.make_all_html()
 
-print webbrowser.open('file:////Users/jjdenis/Dropbox/Familia/Programas/ProyectoCompy/web_compy/website/challenges.html')
+print webbrowser.open(
+    'file:////Users/jjdenis/Dropbox/Familia/Programas/'
+    'ProyectoCompy/web_compy/website/lesson01.html')

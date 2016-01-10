@@ -1,29 +1,27 @@
 
+
 def my_program():
 
     clear_screen()
 
     printf()
-    printf('FIND THE MINIMUM OF MANY NUMBERS', color=4)
-    printf('================================')
+    printf('           DRAW A LADDER POINTING LEFT', color=17)
     printf()
-
-
-    minimum = input("Give me one number: ", color=8)
+    printf()
+    printf()
+    n=0
     while True:
-        new_value = input("Give me another number (N to stop): ")
-        if new_value == 'N':
+        n = n + 1
+        draw_line(n)
+        if n == 10:
             break
-        if new_value < minimum:
-            minimum = new_value
-
-    response = 'The minimum is {}'.format(minimum)
-
-    printf()
-    printf(response, color=6)
 
 
-
+def draw_line(n):
+    printf('        ', stay=True)
+    space = 11 -n
+    printf(' '*space, stay=True)
+    printf(' '*n, reverse=True, color='light-yellow')
 
 
 ###########################################################################
@@ -32,28 +30,22 @@ def my_program():
 # but keep them, don't get rid of these lines
 ###########################################################################
 ###########################################################################
+import compy
+import time
 
+# define commands of compy, so IDE's will recognize them
 def clear_screen(): pass
-
 def set_bg_color(color): pass
-
 def set_fm_color(color): pass
-
 def printf(to_print='', color=None, stay=False, reverse=False): pass
-
 def xyprintf(x, y, *args): pass
-
 def poke(x, y, code, color = None, reverse=False): pass
-
 def peek(self, x, y): pass
-
-def input(message = '', color=None): pass
-
+def input(message = '', color=None): return None
 def wait_key(): pass
-
 def check_key(): pass
 
-def redefine_commands(screen):
+def redefine_commands_and_run(screen):
 
     global clear_screen, set_bg_color, set_fm_color, printf, xyprintf
     global poke, peek, input, wait_key, check_key
@@ -71,9 +63,8 @@ def redefine_commands(screen):
 
     my_program()
 
-import compy
-
-compy.run(redefine_commands)
+if __name__ == '__main__':
+    compy.run(redefine_commands_and_run)
 
 ###########################################################################
 ###########################################################################
